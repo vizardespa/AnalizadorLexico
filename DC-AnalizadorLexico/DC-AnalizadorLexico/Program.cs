@@ -39,46 +39,45 @@ namespace DC_AnalizadorLexico
             string blancoN = "[Blanco]";
 
             #region PrimerIntentoFunciones
-            /*
+            
             //Funciones...
             //Entero
-            Func<string, bool> enteroI = (input) =>
+            Func<string, string> enteroI = (input) =>
             {
                 string aux = "";
-                Match m = enteroR.Match(input);
-                return m.Success;
+                return aux;
             };
             //Real
-            Func<string, bool> realI = (input) =>
+            Func<string, string> realI = (input) =>
             {
-                Match m = realR.Match(input);
-                return m.Success;
+                string aux = "";
+                return aux;
             };
             //Identificador
-            Func<string, bool> identificadorI = (input) =>
+            Func<string, string> identificadorI = (input) =>
             {
-                Match m = identificadorR.Match(input);
-                return m.Success;
+                string aux = "";
+                return aux;
             };
             //Asignacion
-            Func<string, bool> asignacionI = (input) =>
+            Func<string, string> asignacionI = (input) =>
             {
-                Match m = asignacionR.Match(input);
-                return m.Success;
+                string aux = "";
+                return aux;
             };
             //Rango
-            Func<string, bool> rangoI = (input) =>
+            Func<string, string> rangoI = (input) =>
             {
-                Match m = rangoR.Match(input);
-                return m.Success;
+                string aux = "";
+                return aux;
             };
             //Blanco
-            Func<string, bool> blancoI = (input) =>
+            Func<string, string> blancoI = (input) =>
             {
-                Match m = blancoR.Match(input);
-                return m.Success;
+                string aux = "";
+                return aux;
             };
-            */
+            
             #endregion
 
             Categorias.Add(new Categoria(identificadorN, identificadorR));
@@ -112,6 +111,12 @@ namespace DC_AnalizadorLexico
                 TokensIniciales.Add(aux);
                 #endregion 
 
+
+               /* string[] p = Categorias[0].Separadortokens(input);
+                string[] p1 = Categorias[1].Separadortokens(input);
+                string[] p2 = Categorias[2].Separadortokens(input);
+                string[] p3 = Categorias[3].Separadortokens(input);
+                string[] p4 = Categorias[4].Separadortokens(input);*/
                 #region IdentificacionTokens
                 foreach (string s in TokensIniciales)
                 {
