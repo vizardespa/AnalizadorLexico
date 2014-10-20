@@ -27,7 +27,7 @@ namespace DC_AnalizadorLexico
             string identificadorN = "[Identificador]";
             
             //Asignacion
-            Regex asignacionR = new Regex(@":=");
+            Regex asignacionR = new Regex(@"=");
             string asignacionN = "[Asignacion]";
            
             //Rango
@@ -39,54 +39,58 @@ namespace DC_AnalizadorLexico
             string blancoN = "[Blanco]";
 
             #region PrimerIntentoFunciones
-            /*
             //Funciones...
             //Entero
-            Func<string, bool> enteroI = (input) =>
+            Func<string, string> enteroS = (input) =>
             {
                 string aux = "";
-                Match m = enteroR.Match(input);
-                return m.Success;
+                return aux;
             };
             //Real
-            Func<string, bool> realI = (input) =>
+            Func<string, string> realS = (input) =>
             {
-                Match m = realR.Match(input);
-                return m.Success;
+               string aux = "";
+                return aux;
             };
             //Identificador
-            Func<string, bool> identificadorI = (input) =>
+            Func<string, string> identificadorS = (input) =>
             {
-                Match m = identificadorR.Match(input);
-                return m.Success;
+                string aux = "";
+                return aux;
             };
             //Asignacion
-            Func<string, bool> asignacionI = (input) =>
+            Func<string, string> asignacionS = (input) =>
             {
-                Match m = asignacionR.Match(input);
-                return m.Success;
+                string aux = "";
+                return aux;
             };
             //Rango
-            Func<string, bool> rangoI = (input) =>
+            Func<string, string> rangoS = (input) =>
             {
-                Match m = rangoR.Match(input);
-                return m.Success;
+                string aux = "";
+                return aux;
             };
             //Blanco
-            Func<string, bool> blancoI = (input) =>
+            Func<string, string> blancoS = (input) =>
             {
-                Match m = blancoR.Match(input);
-                return m.Success;
+                string aux = "";
+                return aux;
             };
-            */
             #endregion
-
+            Categorias.Add(new Categoria(identificadorN, identificadorR,identificadorS));
+            Categorias.Add(new Categoria(asignacionN, asignacionR,asignacionS));
+            Categorias.Add(new Categoria(realN, realR,realS));
+            Categorias.Add(new Categoria(enteroN, enteroR,enteroS));
+            Categorias.Add(new Categoria(rangoN, rangoR,rangoS));
+            Categorias.Add(new Categoria(blancoN, blancoR,blancoS));
+            /*
             Categorias.Add(new Categoria(identificadorN, identificadorR));
             Categorias.Add(new Categoria(asignacionN, asignacionR));
             Categorias.Add(new Categoria(realN, realR));
             Categorias.Add(new Categoria(enteroN, enteroR));
             Categorias.Add(new Categoria(rangoN, rangoR));
             Categorias.Add(new Categoria(blancoN, blancoR));
+             */
             while (true)
             {
                 Console.WriteLine("Escribe una entrada...");
