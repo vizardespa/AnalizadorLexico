@@ -38,13 +38,47 @@ namespace DC_AnalizadorLexico
             Regex blancoR = new Regex(@"[\n\s\t]+");
             string blancoN = "[Blanco]";
 
+            //Letras
+            Regex LetrasR = new Regex(@"[a-zA-Z]+");
+            string LetrasN = "[Letra]";
+
+            //Simbolos
+            Regex SimbolosR = new Regex(@"[+\-*/=!.]+");
+            string SimbolosN = "[Simbolo]";
+
             #region PrimerIntentoFunciones
             //Funciones...
             //Entero
             Func<string, string> enteroS = (input) =>
             {
-                string aux = "";
-                return aux;
+                //aun no terminado
+                List<char> inputR = input.ToList<char>();
+                bool blanco = false;
+                for (int i = 0; i < input.Length; i++)
+                {
+                    Match m = enteroR.Match(input[i].ToString());
+                    if (!blanco && m.Success)
+                    {
+                        if (i != 0)
+                        {
+                            Match n = LetrasR.Match(input[i - 1].ToString());
+                            if (!n.Success)
+                                blanco = true;
+                        }
+                    }
+                    else if (blanco && !m.Success)
+                    {
+                        if (i != input.Length - 1)
+                        {
+                            if (input[i + 1] != '.')
+                            {
+                                inputR.Insert(i, ' ');
+                                blanco = false;
+                            }
+                        }
+                    }
+                }
+                return string.Join("", inputR);
             };
             //Real
             Func<string, string> realS = (input) =>
@@ -97,6 +131,8 @@ namespace DC_AnalizadorLexico
                 string input = Console.ReadLine();
                 List<string> TokensIniciales = new List<string>();
                 List<string> TokensFinales = new List<string>();
+
+                string f = Categorias[3].separador.Invoke(input);
 
                 #region SeparacionTokens
                 string aux = "";
