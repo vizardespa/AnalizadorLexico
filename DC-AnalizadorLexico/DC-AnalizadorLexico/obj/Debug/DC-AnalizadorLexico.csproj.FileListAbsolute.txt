@@ -4,9 +4,3 @@ c:\users\vizardespa\documents\visual studio 2013\Projects\DC-AnalizadorLexico\DC
 c:\users\vizardespa\documents\visual studio 2013\Projects\DC-AnalizadorLexico\DC-AnalizadorLexico\obj\Debug\DC-AnalizadorLexico.csprojResolveAssemblyReference.cache
 c:\users\vizardespa\documents\visual studio 2013\Projects\DC-AnalizadorLexico\DC-AnalizadorLexico\obj\Debug\DC-AnalizadorLexico.exe
 c:\users\vizardespa\documents\visual studio 2013\Projects\DC-AnalizadorLexico\DC-AnalizadorLexico\obj\Debug\DC-AnalizadorLexico.pdb
-C:\Users\Vizardespa\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\DC-AnalizadorLexico\bin\Debug\DC-AnalizadorLexico.exe.config
-C:\Users\Vizardespa\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\DC-AnalizadorLexico\obj\Debug\DC-AnalizadorLexico.exe
-C:\Users\Vizardespa\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\DC-AnalizadorLexico\obj\Debug\DC-AnalizadorLexico.pdb
-C:\Users\Vizardespa\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\DC-AnalizadorLexico\obj\Debug\DC-AnalizadorLexico.csprojResolveAssemblyReference.cache
-C:\Users\Vizardespa\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\DC-AnalizadorLexico\bin\Debug\DC-AnalizadorLexico.exe
-C:\Users\Vizardespa\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\DC-AnalizadorLexico\bin\Debug\DC-AnalizadorLexico.pdb
