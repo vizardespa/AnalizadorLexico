@@ -11,14 +11,14 @@ namespace DC_AnalizadorLexico
     {
         public string nombre { get; set; }
         public Regex regex { get; set; }
-        public Func<string, string> Separador { get; set; }
-        public Categoria(string _nombre, Regex _regex, Func<string, string> _separador)
+       /* public Func<string, bool> identificar { get; set; }
+        public Categoria(string _nombre, Regex _regex, Func<string,bool> _identificar)
         {
             nombre = _nombre;
             regex = _regex;
-            Separador = _separador;
+            identificar = _identificar;
         }
-         
+         */
         public Categoria(string _nombre, Regex _regex)
         {
             nombre = _nombre;
@@ -29,12 +29,6 @@ namespace DC_AnalizadorLexico
             Match m = regex.Match(input);
             return m.Success;
         }
-        /*
-       public string[] Separadortokens(string input)
-        {
-            string[] tokens = Regex.Split(input,regex.ToString());
-            return tokens;
-        }*/
     
     }
 }
