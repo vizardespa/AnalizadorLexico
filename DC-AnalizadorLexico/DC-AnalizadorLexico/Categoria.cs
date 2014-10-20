@@ -11,13 +11,14 @@ namespace DC_AnalizadorLexico
     {
         public string nombre { get; set; }
         public Regex regex { get; set; }
-        public Func<string, string> separador { get; set; }
-        public Categoria(string _nombre, Regex _regex, Func<string, string> _separador)
+       /* public Func<string, bool> identificar { get; set; }
+        public Categoria(string _nombre, Regex _regex, Func<string,bool> _identificar)
         {
             nombre = _nombre;
             regex = _regex;
-            separador = _separador;
+            identificar = _identificar;
         }
+         */
         public Categoria(string _nombre, Regex _regex)
         {
             nombre = _nombre;
