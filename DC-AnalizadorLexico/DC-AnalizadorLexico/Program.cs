@@ -12,7 +12,8 @@ namespace DC_AnalizadorLexico
         static void Main(string[] args)
         {
             List<Categoria> Categorias = new List<Categoria>();
-            
+
+#region CargaVariables
             //Variables...
             //Entero
             Regex enteroR = new Regex(@"[0-9]+");
@@ -46,18 +47,40 @@ namespace DC_AnalizadorLexico
             Regex SimbolosR = new Regex(@"[+\-*/=!.]+");
             string SimbolosN = "[Simbolo]";
 
-            #region PrimerIntentoFunciones
+            //Suma
+            Regex SumaR = new Regex(@"\+");
+            string SumaN = "[Suma]";
+
+            //Resta
+            Regex RestaR = new Regex(@"\-");
+            string RestaN = "[Resta]";
+
+            //Division
+            Regex DivisionR = new Regex(@"/");
+            string DivisionN = "[Division]";
+
+            //Multiplicacion
+            Regex MultiplicacionR = new Regex(@"\*");
+            string MultiplicacionN = "[Multiplicacion]";
+#endregion
+#region Funciones
             //Funciones...
             //Entero
             Func<string, string> enteroS = (input) =>
             {
-                //aun no terminado
+                /*//aun no terminado
                 List<char> inputR = input.ToList<char>();
                 bool blanco = false;
+                bool NoEntero = true;
+                string aux="";
                 for (int i = 0; i < input.Length; i++)
                 {
                     Match m = enteroR.Match(input[i].ToString());
-                    if (!blanco && m.Success)
+                    if(NoEntero)
+                    {
+
+                    }
+                    if (!blanco && m.Success&&!NoEntero)
                     {
                         if (i != 0)
                         {
@@ -78,43 +101,148 @@ namespace DC_AnalizadorLexico
                         }
                     }
                 }
-                return string.Join("", inputR);
+                return string.Join("", inputR);*/
+                return input;
             };
             //Real
             Func<string, string> realS = (input) =>
             {
-               string aux = "";
-                return aux;
+                return input;
             };
             //Identificador
             Func<string, string> identificadorS = (input) =>
             {
-                string aux = "";
-                return aux;
+                string[] inputR = Regex.Split(input, asignacionR.ToString());
+                List<string> r = new List<string>();
+                for (int i = 0; i < inputR.Length; i++)
+                {
+                    if (i != (inputR.Length - 1))
+                    {
+                        r.Add(inputR[i]);
+                        r.Add(" ");
+                        r.Add("=");
+                        r.Add(" ");
+                    }
+                    else
+                    {
+                        r.Add(inputR[i]);
+                    }
+                }
+                return string.Join("", r);
             };
             //Asignacion
             Func<string, string> asignacionS = (input) =>
             {
-                string aux = "";
-                return aux;
+                return input;
             };
             //Rango
             Func<string, string> rangoS = (input) =>
             {
-                string aux = "";
-                return aux;
+                return input;
             };
             //Blanco
             Func<string, string> blancoS = (input) =>
             {
-                string aux = "";
-                return aux;
+                return input;
             };
-            #endregion
-            Categorias.Add(new Categoria(identificadorN, identificadorR,identificadorS));
-            Categorias.Add(new Categoria(asignacionN, asignacionR,asignacionS));
-            Categorias.Add(new Categoria(realN, realR,realS));
-            Categorias.Add(new Categoria(enteroN, enteroR,enteroS));
+
+            //Suma
+            Func<string, string> SumaS = (input) =>
+            {
+                string[] inputR = Regex.Split(input, SumaR.ToString());
+                List<string> r = new List<string>();
+                for (int i = 0; i < inputR.Length; i++)
+			    {
+                    if(i!=(inputR.Length-1))
+                    {
+                        r.Add(inputR[i]);
+                        r.Add(" ");
+                        r.Add("+");
+                        r.Add(" ");
+                    }
+                    else 
+                    {
+                        r.Add(inputR[i]);
+                    }
+			    }
+                return string.Join("", r);
+            };
+
+            //Resta
+            Func<string, string> RestaS = (input) =>
+            {
+                string[] inputR = Regex.Split(input, RestaR.ToString());
+                List<string> r = new List<string>();
+                for (int i = 0; i < inputR.Length; i++)
+                {
+                    if (i != (inputR.Length - 1))
+                    {
+                        r.Add(inputR[i]);
+                        r.Add(" ");
+                        r.Add("-");
+                        r.Add(" ");
+                    }
+                    else
+                    {
+                        r.Add(inputR[i]);
+                    }
+                }
+                return string.Join("", r);
+            };
+
+            //Multiplicacion
+            Func<string, string> MultiplicacionS = (input) =>
+            {
+                string[] inputR = Regex.Split(input, MultiplicacionR.ToString());
+                List<string> r = new List<string>();
+                for (int i = 0; i < inputR.Length; i++)
+                {
+                    if (i != (inputR.Length - 1))
+                    {
+                        r.Add(inputR[i]);
+                        r.Add(" ");
+                        r.Add("*");
+                        r.Add(" ");
+                    }
+                    else
+                    {
+                        r.Add(inputR[i]);
+                    }
+                }
+                return string.Join("", r);
+            };
+
+            //Division
+            Func<string, string> DivisionS = (input) =>
+            {
+                string[] inputR = Regex.Split(input, DivisionR.ToString());
+                List<string> r = new List<string>();
+                for (int i = 0; i < inputR.Length; i++)
+                {
+                    if (i != (inputR.Length - 1))
+                    {
+                        r.Add(inputR[i]);
+                        r.Add(" ");
+                        r.Add("/");
+                        r.Add(" ");
+                    }
+                    else
+                    {
+                        r.Add(inputR[i]);
+                    }
+                }
+                return string.Join("", r);
+            };
+#endregion
+#region AgregacionCategorias
+            Categorias.Add(new Categoria(SumaN,SumaR,SumaS));
+            Categorias.Add(new Categoria(RestaN, RestaR, RestaS));
+            Categorias.Add(new Categoria(DivisionN, DivisionR, DivisionS));
+            Categorias.Add(new Categoria(MultiplicacionN, MultiplicacionR, MultiplicacionS));
+            Categorias.Add(new Categoria(identificadorN, identificadorR, identificadorS));
+            Categorias.Add(new Categoria(asignacionN, asignacionR, asignacionS));
+            Categorias.Add(new Categoria(realN, realR, realS));
+            Categorias.Add(new Categoria(enteroN, enteroR, enteroS));
             Categorias.Add(new Categoria(rangoN, rangoR,rangoS));
             Categorias.Add(new Categoria(blancoN, blancoR,blancoS));
             /*
@@ -125,6 +253,7 @@ namespace DC_AnalizadorLexico
             Categorias.Add(new Categoria(rangoN, rangoR));
             Categorias.Add(new Categoria(blancoN, blancoR));
              */
+#endregion
             while (true)
             {
                 Console.WriteLine("Escribe una entrada...");
@@ -132,9 +261,15 @@ namespace DC_AnalizadorLexico
                 List<string> TokensIniciales = new List<string>();
                 List<string> TokensFinales = new List<string>();
 
-                string f = Categorias[3].separador.Invoke(input);
+                string s0 = Categorias[0].separador.Invoke(input);
 
-                #region SeparacionTokens
+                string auxiliar = input;
+                foreach (Categoria C in Categorias)
+                {
+                    auxiliar = C.separador.Invoke(auxiliar);
+                }
+                input = auxiliar;
+#region SeparacionTokens
                 string aux = "";
                 for (int i = 0; i < input.Length; i++)
                 {
@@ -150,9 +285,8 @@ namespace DC_AnalizadorLexico
                     }
                 }
                 TokensIniciales.Add(aux);
-                #endregion 
-
-                #region IdentificacionTokens
+#endregion 
+#region IdentificacionTokens
                 foreach (string s in TokensIniciales)
                 {
                     bool r = false;
@@ -171,7 +305,7 @@ namespace DC_AnalizadorLexico
                         TokensFinales.Add("[TokenNoIdentificado]");
                     }
                 }
-                #endregion
+#endregion
 
                 Console.WriteLine("Salida en Tokens");
                 TokensFinales.ForEach(x => { Console.Write(x); });
