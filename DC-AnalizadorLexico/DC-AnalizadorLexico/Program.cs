@@ -173,7 +173,7 @@ namespace DC_AnalizadorLexico
             string MayorQueC = "[17]";
 
             //MenorQue
-            Regex MenorQueR = new Regex(@">");
+            Regex MenorQueR = new Regex(@"<");
             string MenorQueN = "[MenorQue]";
             string MenorQueC = "[18]";
 
@@ -543,6 +543,8 @@ namespace DC_AnalizadorLexico
             Categorias.Add(new Categoria(ComaN, ComaC, ComaR, ComaS));
             Categorias.Add(new Categoria(ComillaSimpleN, ComillaSimpleC, ComillaSimpleR, ComillaSimpleS));
             Categorias.Add(new Categoria(ComillaDobleN, ComillaDobleC, ComillaDobleR, ComillaDobleS));
+            Categorias.Add(new Categoria(MayorIgualQueN, MayorIgualQueC, MayorIgualQueR, MayorIgualQueS));
+            Categorias.Add(new Categoria(MenorIgualQueN, MenorIgualQueC, MenorIgualQueR, MenorIgualQueS));
             Categorias.Add(new Categoria(AsignacionN, AsignacionC, AsignacionR, AsignacionS));
             Categorias.Add(new Categoria(AbreParetesisN, AbreParetesisC, AbreParetesisR, AbreParetesisS));
             Categorias.Add(new Categoria(CierraParentesisN, CierraParentesisC, CierraParentesisR, CierraParentesisS));
@@ -552,8 +554,6 @@ namespace DC_AnalizadorLexico
             Categorias.Add(new Categoria(CierraLlaveN, CierraLlaveC, CierraLlaveR, CierraLlaveS));
             Categorias.Add(new Categoria(MayorQueN, MayorQueC, MayorQueR, MayorQueS));
             Categorias.Add(new Categoria(MenorQueN, MenorQueC, MenorQueR, MenorQueS));
-            Categorias.Add(new Categoria(MayorIgualQueN, MayorIgualQueC, MayorIgualQueR, MayorIgualQueS));
-            Categorias.Add(new Categoria(MenorIgualQueN, MenorIgualQueC, MenorIgualQueR, MenorIgualQueS));
             //Categorias.Add(new Categoria(EOFN, EOFC, EOFR, EOFS));
             Categorias.Add(new Categoria(RangoN,RangoC, RangoR, RangoS));
             Categorias.Add(new Categoria(WhatIsLoveN, WhatIsLoveC, WhatIsLoveR, WhatIsLoveS));
