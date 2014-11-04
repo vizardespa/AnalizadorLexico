@@ -10,3 +10,9 @@ C:\Users\Vizardespa\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\DC-Ana
 C:\Users\Vizardespa\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\DC-AnalizadorLexico\bin\Debug\DC-AnalizadorLexico.exe
 C:\Users\Vizardespa\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\DC-AnalizadorLexico\bin\Debug\DC-AnalizadorLexico.pdb
 C:\Users\Vizardespa\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\DC-AnalizadorLexico\obj\Debug\DC-AnalizadorLexico.csprojResolveAssemblyReference.cache
+C:\Users\Oscar\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\DC-AnalizadorLexico\bin\Debug\DC-AnalizadorLexico.exe.config
+C:\Users\Oscar\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\DC-AnalizadorLexico\obj\Debug\DC-AnalizadorLexico.exe
+C:\Users\Oscar\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\DC-AnalizadorLexico\obj\Debug\DC-AnalizadorLexico.pdb
+C:\Users\Oscar\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\DC-AnalizadorLexico\bin\Debug\DC-AnalizadorLexico.exe
+C:\Users\Oscar\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\DC-AnalizadorLexico\bin\Debug\DC-AnalizadorLexico.pdb
+C:\Users\Oscar\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\DC-AnalizadorLexico\obj\Debug\DC-AnalizadorLexico.csprojResolveAssemblyReference.cache

@@ -38,17 +38,17 @@ namespace DC_AnalizadorLexico
             #region CargaVariables
             //Variables...
             //Entero
-            Regex EnteroR = new Regex(@"[0-9]+");
+            Regex EnteroR = new Regex(@"^[0-9]+$");
             string EnteroN = "[Entero]";
             string EnteroC = "[1]";
 
             //Real
-            Regex RealR = new Regex(@"[0-9]+\.[0-9]+");
+            Regex RealR = new Regex(@"^[0-9]+\.[0-9]+$");
             string RealN = "[Real]";
             string RealC = "[2]";
 
             //Identificador
-            Regex IdentificadorR = new Regex(@"[a-zA-Z][a-zA-Z0-9]*");
+            Regex IdentificadorR = new Regex(@"^[a-zA-Z][a-zA-Z0-9]*");
             string IdentificadorN = "[Identificador]";
             string IdentificadorC = "[3]";
 
@@ -103,32 +103,32 @@ namespace DC_AnalizadorLexico
             string EOFC = "[99]";
 
             //if
-            Regex IfR = new Regex(@"if");
+            Regex IfR = new Regex(@"^if$");
             string IfN = "[if]";
             string IfC = "[6]";
 
             //else
-            Regex ElseR = new Regex(@"else");
+            Regex ElseR = new Regex(@"^else$");
             string ElseN = "[else]";
             string ElseC = "[7]";
 
             //else if
-            Regex ElseifR = new Regex(@"else if");
+            Regex ElseifR = new Regex(@"^else if$");
             string ElseifN = "[else if]";
             string ElseifC = "[8]";
 
             //while
-            Regex WhileR = new Regex(@"while");
+            Regex WhileR = new Regex(@"^while$");
             string WhileN = "[while]";
             string WhileC = "[9]";
 
             //for
-            Regex ForR = new Regex(@"for");
+            Regex ForR = new Regex(@"^for$");
             string ForN = "[for]";
             string ForC = "[10]";
 
             //foreach
-            Regex ForeachR = new Regex(@"foreach");
+            Regex ForeachR = new Regex(@"^foreach$");
             string ForeachN = "[foreach]";
             string ForeachC = "[11]";
 
@@ -153,7 +153,7 @@ namespace DC_AnalizadorLexico
             string CierraCorcheteC = "[26]";
 
             //Magic
-            Regex MagicR = new Regex(@"magic");
+            Regex MagicR = new Regex(@"^magic$");
             string MagicN = "[Magic]";
             string MagicC = "[50]";
 
@@ -188,12 +188,12 @@ namespace DC_AnalizadorLexico
             string MenorIgualQueC = "[20]";
 
             //WhatIsLove
-            Regex WhatIsLoveR = new Regex(@"WhatIsLove");
+            Regex WhatIsLoveR = new Regex(@"^WhatIsLove$");
             string WhatIsLoveN = "[WhatIsLove]";
             string WhatIsLoveC = "[51]";
 
             //BabyDonthHurtMe
-            Regex BabyDonthHurtMeR = new Regex(@"BabyDonthHurtMe");
+            Regex BabyDonthHurtMeR = new Regex(@"^BabyDonthHurtMe$");
             string BabyDonthHurtMeN = "[BabyDonthHurtMe]";
             string BabyDonthHurtMeC = "[52]";
 
@@ -203,42 +203,42 @@ namespace DC_AnalizadorLexico
             string PuntoComaC = "[53]";
 
             //int
-            Regex IntR = new Regex(@"int");
+            Regex IntR = new Regex(@"^int$");
             string IntN = "[int]";
             string IntC = "[27]";
 
             //string
-            Regex StringR = new Regex(@"string");
+            Regex StringR = new Regex(@"^string$");
             string StringN = "[string]";
             string StringC = "[28]";
 
             //bool
-            Regex BoolR = new Regex(@"bool");
+            Regex BoolR = new Regex(@"^bool$");
             string BoolN = "[bool]";
             string BoolC = "[29]";
 
             //double
-            Regex DoubleR = new Regex(@"double");
+            Regex DoubleR = new Regex(@"^double$");
             string DoubleN = "[double]";
             string DoubleC = "[30]";
 
             //char
-            Regex CharR = new Regex(@"char");
+            Regex CharR = new Regex(@"^char$");
             string CharN = "[char]";
             string CharC = "[31]";
 
             //var
-            Regex VarR = new Regex(@"var");
+            Regex VarR = new Regex(@"^var$");
             string VarN = "[var]";
             string VarC = "[32]";
 
             //List
-            Regex ListR = new Regex(@"List");
+            Regex ListR = new Regex(@"^List$");
             string ListN = "[List]";
             string ListC = "[33]";
 
             //in
-            Regex InR = new Regex(@"in");
+            Regex InR = new Regex(@"^in$");
             string InN = "[in]";
             string InC = "[34]";
 
