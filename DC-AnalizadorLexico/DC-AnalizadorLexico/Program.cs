@@ -257,6 +257,27 @@ namespace DC_AnalizadorLexico
             string ComillaDobleN = "[ComillaDoble]";
             string ComillaDobleC = "[54]";
 
+            //New
+            Regex NewR = new Regex(@"^new$");
+            string NewN = "[New]";
+            string NewC = "[57]";
+
+            //Science
+            Regex ScienceR = new Regex(@"^science$");
+            string ScienceN = "[Science]";
+            string ScienceC = "[58]";
+
+            //SuchWow
+            Regex SuchWowR = new Regex(@"^SuchWow$");
+            string SuchWowN = "[SuchWow]";
+            string SuchWowC = "[59]";
+
+            //DosPuntos
+            Regex DosPuntosR = new Regex(@":");
+            string DosPuntosN = "[DosPuntos]";
+            string DosPuntosC = "[60]";
+
+
             #endregion
 
             #region Funciones
@@ -285,6 +306,12 @@ namespace DC_AnalizadorLexico
             Func<string, string> AsignacionS = (input) =>
             {
                 return SeparadorGenerico(input, AsignacionR, "=");
+            };
+
+            //DosPuntos
+            Func<string, string> DosPuntosS = (input) =>
+            {
+                return SeparadorGenerico(input, DosPuntosR, ":");
             };
 
             //Rango
@@ -531,6 +558,26 @@ namespace DC_AnalizadorLexico
                 return input;
             };
 
+            //New
+            Func<string, string> NewS = (input) =>
+            {
+                return input;
+            };
+
+            //Science
+            Func<string, string> ScienceS = (input) =>
+            {
+                return input;
+            };
+
+            //SuchWow
+            Func<string, string> SuchWowS = (input) =>
+            {
+                return input;
+            };
+
+
+
             #endregion
 
             #region AgregacionCategorias
@@ -540,6 +587,7 @@ namespace DC_AnalizadorLexico
             Categorias.Add(new Categoria(DivisionN,DivisionC, DivisionR, DivisionS));
             Categorias.Add(new Categoria(MultiplicacionN,MultiplicacionC, MultiplicacionR, MultiplicacionS));
             Categorias.Add(new Categoria(PuntoComaN, PuntoComaC, PuntoComaR, PuntoComaS));
+            Categorias.Add(new Categoria(DosPuntosN, DosPuntosC, DosPuntosR, DosPuntosS));
             Categorias.Add(new Categoria(ComaN, ComaC, ComaR, ComaS));
             Categorias.Add(new Categoria(ComillaSimpleN, ComillaSimpleC, ComillaSimpleR, ComillaSimpleS));
             Categorias.Add(new Categoria(ComillaDobleN, ComillaDobleC, ComillaDobleR, ComillaDobleS));
@@ -565,6 +613,9 @@ namespace DC_AnalizadorLexico
             Categorias.Add(new Categoria(ForeachN, ForeachC, ForeachR, ForeachS));
             Categorias.Add(new Categoria(ForN, ForC, ForR, ForS));
             Categorias.Add(new Categoria(MagicN, MagicC, MagicR, MagicS));
+            Categorias.Add(new Categoria(NewN, NewC, NewR, NewS));
+            Categorias.Add(new Categoria(SuchWowN, SuchWowC, SuchWowR, SuchWowS));
+            Categorias.Add(new Categoria(ScienceN, ScienceC, ScienceR, ScienceS));
             Categorias.Add(new Categoria(IntN, IntC, IntR, IntS));
             Categorias.Add(new Categoria(StringN, StringC, StringR, StringS));
             Categorias.Add(new Categoria(BoolN, BoolC, BoolR, BoolS));
