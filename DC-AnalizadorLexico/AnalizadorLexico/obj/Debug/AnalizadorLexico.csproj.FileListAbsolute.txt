@@ -3,3 +3,8 @@ C:\Users\Vizardespa\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\Analiz
 C:\Users\Vizardespa\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\AnalizadorLexico\obj\Debug\AnalizadorLexico.csprojResolveAssemblyReference.cache
 C:\Users\Vizardespa\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\AnalizadorLexico\obj\Debug\AnalizadorLexico.dll
 C:\Users\Vizardespa\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\AnalizadorLexico\obj\Debug\AnalizadorLexico.pdb
+C:\Users\Oscar\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\AnalizadorLexico\bin\Debug\AnalizadorLexico.dll
+C:\Users\Oscar\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\AnalizadorLexico\bin\Debug\AnalizadorLexico.pdb
+C:\Users\Oscar\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\AnalizadorLexico\obj\Debug\AnalizadorLexico.csprojResolveAssemblyReference.cache
+C:\Users\Oscar\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\AnalizadorLexico\obj\Debug\AnalizadorLexico.dll
+C:\Users\Oscar\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\AnalizadorLexico\obj\Debug\AnalizadorLexico.pdb

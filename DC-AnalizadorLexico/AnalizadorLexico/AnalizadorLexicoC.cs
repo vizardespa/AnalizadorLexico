@@ -35,6 +35,16 @@ namespace AnalizadorLexico
             string IdentificadorN = "[Identificador]";
             string IdentificadorC = "[3]";
 
+            //Palabra
+            Regex PalabraR = new Regex(@"/[a-zA-Z0-9]");
+            string PalabraN = "[String]";
+            string PalabraC = "[70]";
+
+            //Letra Caracter
+            Regex LetraR = new Regex(@"\'[a-zA-Z0-9]'");
+            string LetraN = "[CaracterSolo]";
+            string LetraC = "[71]";
+
             //Asignacion
             Regex AsignacionR = new Regex(@"=");
             string AsignacionN = "[Asignacion]";
@@ -282,6 +292,18 @@ namespace AnalizadorLexico
             Func<string, string> IdentificadorS = (input) =>
             {
                 //return SeparadorGenerico(input, identificadorR, "MetodologiaPendiente");
+                return input;
+            };
+
+            //String
+            Func<string, string> PalabraS = (input) =>
+            {
+                return input;
+            };
+
+            //LetraCaracter
+            Func<string, string> LetraS = (input) =>
+            {
                 return input;
             };
 
@@ -569,7 +591,9 @@ namespace AnalizadorLexico
             Categorias.Add(new Categoria(RestaN, RestaC, RestaR, RestaS));
             Categorias.Add(new Categoria(DivisionN, DivisionC, DivisionR, DivisionS));
             Categorias.Add(new Categoria(MultiplicacionN, MultiplicacionC, MultiplicacionR, MultiplicacionS));
+            Categorias.Add(new Categoria(LetraN, LetraC, LetraR, LetraS));
             Categorias.Add(new Categoria(PuntoComaN, PuntoComaC, PuntoComaR, PuntoComaS));
+            Categorias.Add(new Categoria(PalabraN, PalabraC, PalabraR, PalabraS));
             Categorias.Add(new Categoria(DosPuntosN, DosPuntosC, DosPuntosR, DosPuntosS));
             Categorias.Add(new Categoria(ComaN, ComaC, ComaR, ComaS));
             Categorias.Add(new Categoria(ComillaSimpleN, ComillaSimpleC, ComillaSimpleR, ComillaSimpleS));
@@ -589,9 +613,9 @@ namespace AnalizadorLexico
             Categorias.Add(new Categoria(RangoN, RangoC, RangoR, RangoS));
             Categorias.Add(new Categoria(WhatIsLoveN, WhatIsLoveC, WhatIsLoveR, WhatIsLoveS));
             Categorias.Add(new Categoria(BabyDonthHurtMeN, BabyDonthHurtMeC, BabyDonthHurtMeR, BabyDonthHurtMeS));
+            Categorias.Add(new Categoria(ElseifN, ElseifC, ElseifR, ElseifS));
             Categorias.Add(new Categoria(IfN, IfC, IfR, IfS));
             Categorias.Add(new Categoria(ElseN, ElseC, ElseR, ElseS));
-            Categorias.Add(new Categoria(ElseifN, ElseifC, ElseifR, ElseifS));
             Categorias.Add(new Categoria(WhileN, WhileC, WhileR, WhileS));
             Categorias.Add(new Categoria(ForeachN, ForeachC, ForeachR, ForeachS));
             Categorias.Add(new Categoria(ForN, ForC, ForR, ForS));

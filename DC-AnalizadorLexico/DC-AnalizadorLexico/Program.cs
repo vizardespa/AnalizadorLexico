@@ -26,15 +26,60 @@ namespace DC_Aplicacion
                 string input = Console.ReadLine();
                 input = AnalizadorLexicoC.SeparacionTokensCategorias(Categorias, input);
 
+                List<List<string>> Condicion = new List<List<string>>();
+                List<string> Temp = new List<string>();
+                bool CierraParentesis = false;
+
+
                 List<string> TokensIniciales = AnalizadorLexicoC.SeparacionTokens(input);
                 List<string> TokensFinalesN = AnalizadorLexicoC.IdentificarTokensNombre(Categorias, TokensIniciales);
                 List<string> TokensFinalesC = AnalizadorLexicoC.IdentificarTokensClave(Categorias, TokensIniciales);
+
+                for (int i = 0; i < TokensFinalesC.Count; i++)
+                {
+                    Temp.Add(TokensFinalesC[i].ToString());
+                    //if (TokensFinalesC[i].ToString() == "[13]") 
+                    //{
+                    //    if (TokensFinalesC[i + 1].ToString() == "[15]")
+                    //    {
+                            
+                    //    }
+                    //    else
+                    //    {
+                    //        Condicion.Add(Temp);
+                    //        Temp = new List<string>();
+                    //        CierraParentesis = true;
+                    //    }
+                    //}
+                    if (TokensFinalesC[i].ToString() == "[16]")
+                    {
+                        Condicion.Add(Temp);
+                        Temp = new List<string>();
+                        CierraParentesis = true;
+                    }
+                    else if (CierraParentesis == true)
+                    {
+                        if (/*TokensFinalesC[i].ToString() == "[21]" || TokensFinalesC[i].ToString() == "[22]" || TokensFinalesC[i].ToString() == "[23]" || TokensFinalesC[i].ToString() == "[24]" ||*/ TokensFinalesC[i].ToString() == "[53]") 
+                        {
+                            Condicion.Add(Temp);
+                            Temp = new List<string>();
+                        }
+                    }
+                }
 
                 Console.WriteLine("Salida en Tokens por Nombre...");
                 TokensFinalesN.ForEach(x => { Console.Write(x); });
                 Console.WriteLine();
                 Console.WriteLine("Salida en Tokens por Clave...");
                 TokensFinalesC.ForEach(x => { Console.Write(x); });
+                Console.WriteLine();
+                foreach (List<string> b in Condicion)
+                {
+                    foreach (string c in b)
+                    {
+                        Console.Write(c);
+                    }
+                }
                 Console.ReadLine();
                 Console.Clear();
             }
