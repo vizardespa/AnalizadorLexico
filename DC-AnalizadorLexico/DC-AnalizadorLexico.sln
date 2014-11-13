@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DC-Aplicacion", "DC-Analiza
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalizadorLexico", "AnalizadorLexico\AnalizadorLexico.csproj", "{461D46A9-FFF7-47BD-9860-B16EEE195DFE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalizadorSintactico", "AnalizadorSintactico\AnalizadorSintactico.csproj", "{B7FCDC40-09E2-46FF-B9E0-458C0C2798FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{461D46A9-FFF7-47BD-9860-B16EEE195DFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{461D46A9-FFF7-47BD-9860-B16EEE195DFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{461D46A9-FFF7-47BD-9860-B16EEE195DFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7FCDC40-09E2-46FF-B9E0-458C0C2798FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7FCDC40-09E2-46FF-B9E0-458C0C2798FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7FCDC40-09E2-46FF-B9E0-458C0C2798FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7FCDC40-09E2-46FF-B9E0-458C0C2798FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
