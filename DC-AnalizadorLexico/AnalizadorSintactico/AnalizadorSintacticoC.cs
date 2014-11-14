@@ -9,7 +9,10 @@ namespace AnalizadorSintactico
     public class AnalizadorSintacticoC
     {
 
+        public AnalizadorSintacticoC()
+        {
 
+        }
         public static List<Regla> CargarReglas()
         {
             List<Regla> Reglas = new List<Regla>();
@@ -342,126 +345,169 @@ namespace AnalizadorSintactico
 
             return Reglas;
         }
-
-        public static string SeparacionTokensReglas(List<Regla> Reglas, string input)
+        public static List<List<string>> SeparadorTokens(List<string> input)
         {
-            //string aux = EliminarEspacios(input);
-            string aux = input;
-            foreach (Regla C in Reglas)
+            List<List<string>> Condicion = new List<List<string>>();
+            List<string> Temp = new List<string>();
+            bool CierraParentesis = false;
+            for (int i = 0; i < input.Count; i++)
             {
-                aux = C.separador.Invoke(aux);
-            }
-            return aux;
-        }
+                Temp.Add(input[i].ToString());
+                //if (input[i].ToString() == "[13]") 
+                //{
+                //    if (input[i + 1].ToString() == "[15]")
+                //    {
 
-        public static string EliminarEspacios(string input)
-        {
-            string[] inputR = Regex.Split(input, " ");
-            List<string> r = new List<string>();
-            foreach (string s in inputR)
-            {
-                r.Add(s);
-            }
-            return string.Join("", r);
-        }
-
-        public static string SeparadorGenerico(string input, Regex rex, string separador)
-        {
-            string[] inputR = Regex.Split(input, rex.ToString());
-            List<string> r = new List<string>();
-            for (int i = 0; i < inputR.Length; i++)
-            {
-                if (i != (inputR.Length - 1))
+                //    }
+                //    else
+                //    {
+                //        Condicion.Add(Temp);
+                //        Temp = new List<string>();
+                //        CierraParentesis = true;
+                //    }
+                //}
+                if (input[i].ToString() == "[16]")
                 {
-                    r.Add(inputR[i]);
-                    r.Add(" ");
-                    r.Add(separador);
-                    r.Add(" ");
+                    Condicion.Add(Temp);
+                    Temp = new List<string>();
+                    CierraParentesis = true;
+                }
+                //else if (CierraParentesis == true)
+                //{
+                    if (/*input[i].ToString() == "[21]" || input[i].ToString() == "[22]" || input[i].ToString() == "[23]" || input[i].ToString() == "[24]" ||*/ input[i].ToString() == "[53]")
+                    {
+                        Condicion.Add(Temp);
+                        Temp = new List<string>();
+                    }
+                //}
+            }
+            return Condicion;
+        }
+        public static Regla BuscarRegla(List<string> input, List<Regla> reglas)
+        {
+            Regla Aux = new Regla();
+            int contador = 0;
+            List<string> Temp = new List<string>();
+            Regla TempR = new Regla();
+            int contadorTem = 0;
+            foreach (Regla r in reglas)
+            {
+                foreach (string s in input)
+                {
+                    Temp.Add(s);
+                }
+                foreach (string sr in r.Estructura)
+                {
+                    TempR.Estructura.Add(sr);
+                }
+                //Normalizacion
+                if (input.Count != r.Estructura.Count)
+                {
+                    if ((input.Count - r.Estructura.Count) > 0)
+                    {
+                        for (int i = 0; i < (input.Count - r.Estructura.Count); i++)
+                        {
+                            TempR.Estructura.Add("-");
+                        }
+                        Temp.Add("-");
+                    }
+                    else
+                    {
+                        for (int i = 0; i < (r.Estructura.Count - input.Count); i++)
+                        {
+                            Temp.Add("-");
+                        }
+                        Temp.Add("-");
+                    }
+                }
+                //Comparacion
+                /*for (int i = 0; i < TempR.Estructura.Count; i++)
+                {
+                    if (TempR.Estructura[i] == Temp[i] && (Temp[i]!="-"&&TempR.Estructura[i]!="-"))
+                    {
+                        contadorTem++;
+                    }
+                }*/
+
+                bool aux = false;
+                for (int i = 0; i < TempR.Estructura.Count; i++)
+                {
+                    if ((Temp[i] != "-"))
+                    {
+                        for (int j = 0; j < TempR.Estructura.Count; j++)
+                        {
+                            if (Temp[i] == TempR.Estructura[j])
+                                aux = true;
+                        }
+                    }
+                    if(aux)
+                    {
+                        aux = false;
+                            contadorTem++;
+                    }
+                }
+
+                if(contadorTem>contador)
+                {
+                    Aux = r;
+                    contador = contadorTem;
+                }
+                contadorTem = 0;
+                Temp = new List<string>();
+                TempR = new Regla();
+            }
+            return Aux;
+        }
+        public static string Comparacion(List<string> input, Regla regla)
+        {
+            string resultado = "\nCorrecto con coincidencia en "+regla.TipoR +" de tipo "+regla.TipoC;
+            List<string> Temp = new List<string>();
+            Regla TempR = new Regla();
+            //Normalizacion
+            foreach (string s in input)
+            {
+                Temp.Add(s);
+            }
+            foreach (string sr in regla.Estructura)
+            {
+                TempR.Estructura.Add(sr);
+            }
+            if (input.Count != regla.Estructura.Count)
+            {
+                if ((input.Count - regla.Estructura.Count) > 0)
+                {
+                    for (int i = 0; i < (input.Count - regla.Estructura.Count); i++)
+                    {
+                        TempR.Estructura.Add("-");
+                    }
                 }
                 else
                 {
-                    r.Add(inputR[i]);
-                }
-            }
-            return string.Join("", r);
-        }
-
-        public static List<string> SeparacionTokens(string input)
-        {
-            List<string> TokensIniciales = new List<string>();
-            #region SeparacionTokens
-            string aux = "";
-            for (int i = 0; i < input.Length; i++)
-            {
-                if (input[i] != ' ')
-                {
-                    aux += input[i];
-                }
-                else
-                {
-                    if (aux != "")
-                        TokensIniciales.Add(aux);
-                    //TokensIniciales.Add(" "); //Comentar esta Linea si no se desea espacios en blanco para tokens finales
-                    aux = "";
-                }
-            }
-            if (aux != "")
-                TokensIniciales.Add(aux);
-            #endregion
-            return TokensIniciales;
-        }
-
-        public static List<string> IdentificarTokensNombre(List<Regla> Reglas, List<string> TokensIniciales)
-        {
-            List<string> TokensFinales = new List<string>();
-            #region IdentificacionTokens
-            foreach (string s in TokensIniciales)
-            {
-                bool r = false;
-                foreach (Regla C in Reglas)
-                {
-                    Match maux = C.regex.Match(s);
-                    if (maux.Success)
+                    for (int i = 0; i < (regla.Estructura.Count - input.Count); i++)
                     {
-                        TokensFinales.Add(C.nombre);
-                        r = true;
-                        break;
+                        Temp.Add("-");
                     }
                 }
-                if (!r)
-                {
-                    TokensFinales.Add("[TokenNoIdentificado]");
-                }
             }
-            #endregion
-            return TokensFinales;
-        }
-
-        public static List<string> IdentificarTokensClave(List<Regla> Reglas, List<string> TokensIniciales)
-        {
-            List<string> TokensFinales = new List<string>();
-            #region IdentificacionTokens
-            foreach (string s in TokensIniciales)
+            for (int i = 0; i < regla.Estructura.Count; i++)
             {
-                bool r = false;
-                foreach (Regla C in Reglas)
+                if (TempR.Estructura[i] != Temp[i])
                 {
-                    Match maux = C.regex.Match(s);
-                    if (maux.Success)
-                    {
-                        TokensFinales.Add(C.clave);
-                        r = true;
-                        break;
-                    }
-                }
-                if (!r)
-                {
-                    TokensFinales.Add("[404]");
+                    resultado = "\nError en Token: " + Temp[i] + "\nPosicion: " + i + "\nRegla: " + regla.TipoR + "\nTipo Regla: "+regla.TipoC;
                 }
             }
-            #endregion
-            return TokensFinales;
-        }
+            return resultado;
 
+        }
+        public static List<string> ListaRevision(List<string> input, List<Regla> reglas)
+        {
+            List<string> resultado = new List<string>();
+            List<List<string>> Tokens = SeparadorTokens(input);
+            foreach (List<string> ls in Tokens)
+            {
+                resultado.Add(Comparacion(ls, BuscarRegla(ls, reglas)));
+            }
+            return resultado;
+        }
     }
 }

@@ -14,3 +14,5 @@ C:\Users\Oscar\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\DC-Analizad
 C:\Users\Oscar\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\DC-AnalizadorLexico\bin\Debug\AnalizadorLexico.dll
 C:\Users\Oscar\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\DC-AnalizadorLexico\bin\Debug\AnalizadorLexico.pdb
 C:\Users\Oscar\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\DC-AnalizadorLexico\obj\Debug\DC-Aplicacion.csprojResolveAssemblyReference.cache
+C:\Users\Vizardespa\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\DC-AnalizadorLexico\bin\Debug\AnalizadorSintactico.dll
+C:\Users\Vizardespa\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\DC-AnalizadorLexico\bin\Debug\AnalizadorSintactico.pdb

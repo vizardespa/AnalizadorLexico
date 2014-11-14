@@ -52,6 +52,10 @@
       <Project>{461d46a9-fff7-47bd-9860-b16eee195dfe}</Project>
       <Name>AnalizadorLexico</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AnalizadorSintactico\AnalizadorSintactico.csproj">
+      <Project>{b7fcdc40-09e2-46ff-b9e0-458c0c2798fd}</Project>
+      <Name>AnalizadorSintactico</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

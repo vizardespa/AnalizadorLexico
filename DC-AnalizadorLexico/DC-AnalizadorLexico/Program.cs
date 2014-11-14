@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using AnalizadorLexico;
+using AnalizadorSintactico;
 
 namespace DC_Aplicacion
 {
@@ -24,48 +25,16 @@ namespace DC_Aplicacion
             {
                 Console.WriteLine("Escribe una entrada...");
                 string input = Console.ReadLine();
+                //Analizador Lexico
                 input = AnalizadorLexicoC.SeparacionTokensCategorias(Categorias, input);
-
-                List<List<string>> Condicion = new List<List<string>>();
-                List<string> Temp = new List<string>();
-                bool CierraParentesis = false;
-
-
                 List<string> TokensIniciales = AnalizadorLexicoC.SeparacionTokens(input);
                 List<string> TokensFinalesN = AnalizadorLexicoC.IdentificarTokensNombre(Categorias, TokensIniciales);
                 List<string> TokensFinalesC = AnalizadorLexicoC.IdentificarTokensClave(Categorias, TokensIniciales);
 
-                for (int i = 0; i < TokensFinalesC.Count; i++)
-                {
-                    Temp.Add(TokensFinalesC[i].ToString());
-                    //if (TokensFinalesC[i].ToString() == "[13]") 
-                    //{
-                    //    if (TokensFinalesC[i + 1].ToString() == "[15]")
-                    //    {
-                            
-                    //    }
-                    //    else
-                    //    {
-                    //        Condicion.Add(Temp);
-                    //        Temp = new List<string>();
-                    //        CierraParentesis = true;
-                    //    }
-                    //}
-                    if (TokensFinalesC[i].ToString() == "[16]")
-                    {
-                        Condicion.Add(Temp);
-                        Temp = new List<string>();
-                        CierraParentesis = true;
-                    }
-                    else if (CierraParentesis == true)
-                    {
-                        if (/*TokensFinalesC[i].ToString() == "[21]" || TokensFinalesC[i].ToString() == "[22]" || TokensFinalesC[i].ToString() == "[23]" || TokensFinalesC[i].ToString() == "[24]" ||*/ TokensFinalesC[i].ToString() == "[53]") 
-                        {
-                            Condicion.Add(Temp);
-                            Temp = new List<string>();
-                        }
-                    }
-                }
+                //Analizador Sintactico
+                List<Regla> Reglas = AnalizadorSintacticoC.CargarReglas();
+                List<string> RevisionSintactica = AnalizadorSintacticoC.ListaRevision(TokensFinalesC, Reglas);
+
 
                 Console.WriteLine("Salida en Tokens por Nombre...");
                 TokensFinalesN.ForEach(x => { Console.Write(x); });
@@ -73,13 +42,8 @@ namespace DC_Aplicacion
                 Console.WriteLine("Salida en Tokens por Clave...");
                 TokensFinalesC.ForEach(x => { Console.Write(x); });
                 Console.WriteLine();
-                foreach (List<string> b in Condicion)
-                {
-                    foreach (string c in b)
-                    {
-                        Console.Write(c);
-                    }
-                }
+                Console.WriteLine("Salida Revision Sintactica...");
+                RevisionSintactica.ForEach(x => { Console.Write(x); });
                 Console.ReadLine();
                 Console.Clear();
             }

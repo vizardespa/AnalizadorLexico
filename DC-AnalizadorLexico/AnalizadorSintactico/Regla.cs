@@ -8,13 +8,13 @@ namespace AnalizadorSintactico
 {
     public class Regla
     {
-        string TipoR { get; set; }
-        string TipoC { get; set; }
-        List<string> Estructura { get; set; }
+        public string TipoR { get; set; }
+        public string TipoC { get; set; }
+        public List<string> Estructura { get; set; }
 
         public Regla()
         {
-                
+            Estructura = new List<string>();
         }
         public Regla(string tipoR, string tipoC, List<string> estructura)
         {

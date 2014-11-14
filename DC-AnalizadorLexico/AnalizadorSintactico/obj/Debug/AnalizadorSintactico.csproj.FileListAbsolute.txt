@@ -1,0 +1,5 @@
+C:\Users\Vizardespa\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\AnalizadorSintactico\bin\Debug\AnalizadorSintactico.dll
+C:\Users\Vizardespa\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\AnalizadorSintactico\bin\Debug\AnalizadorSintactico.pdb
+C:\Users\Vizardespa\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\AnalizadorSintactico\obj\Debug\AnalizadorSintactico.csprojResolveAssemblyReference.cache
+C:\Users\Vizardespa\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\AnalizadorSintactico\obj\Debug\AnalizadorSintactico.dll
+C:\Users\Vizardespa\Documents\GitHub\AnalizadorLexico\DC-AnalizadorLexico\AnalizadorSintactico\obj\Debug\AnalizadorSintactico.pdb
